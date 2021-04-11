@@ -1,0 +1,9 @@
+target_repos/
+*.pyc
+envpeek/
+docs/
+.idea/
+.vscode/
+dist/
+*.egg-info
+build/

@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #eee;
+      }
+
+      div#chart-container{
+        width: 100%;
+        height: 100vh;
+      }
+
+      .chart-tooltip .insertions {
+        color: green;
+      }
+
+      .chart-tooltip .deletions {
+        color: red;
+      }
+
+    </style>
+    <meta charset="utf-8" />
+    <body>
+      <!-- chart container  -->
+      <div id="chart-container"></div>
+    
+      <!-- echarts cdn -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+
+      <!-- prepare chart -->
+      <script type="text/javascript">
+        /*  Chart terminologies
+            title: title of chart
+            legend: color and bar name indicator
+            xAxis: horizontal line
+            yAxis: veritcal line
+            toolbox: right box
+            series: list of values, objects
+        */
+
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById("chart-container"));
+
+        // specify chart configuration item and data
+        var option = {
+          color: [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#91c7ae",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+          ],
+          title: {
+            text: "Jul-2005 - Aug-2007 Commits",
+            show: false,
+            textStyle: {
+              color: "black"
+            }
+          },
+          tooltip: {
+            trigger: "item",
+            axisPointer: {
+              type: "shadow"
+            },
+            formatter(params){
+              return `
+              <div class='chart-tooltip'>
+                <span class='series-name'>${params.seriesName}</span><br/>
+                <span class='data-value'>${params.data.value}</span>
+                <span class='data-name'>${params.data.name}</span>
+                &nbsp;
+                <span class='insertions'>${params.data.insertions}++</span>
+                <span class='deletions'>${params.data.deletions}--</span>
+              </div>
+              `
+            }
+          },
+          legend: {
+            data: ['gary.wilson@gmail.com', 'adrian@holovaty.com', 'simon@simonwillison.net', 'russell@keith-magee.com', 'malcolm.tredinnick@gmail.com', 'jacob@jacobian.org', 'L.Plant.98@cantab.net', 'ubernostrum@gmail.com', 'gb@hugo.westfalen.de', 'wminer@gmail.com'],
+            textStyle: {
+              color: "black"
+            }
+          },
+          xAxis: [
+            {
+              data: ['Jul-2005', 'Aug-2005', 'Sep-2005', 'Oct-2005', 'Nov-2005', 'Dec-2005', 'Jan-2006', 'Feb-2006', 'Mar-2006', 'Apr-2006', 'May-2006', 'Jun-2006', 'Jul-2006', 'Aug-2006', 'Sep-2006', 'Oct-2006', 'Nov-2006', 'Dec-2006', 'Jan-2007', 'Feb-2007', 'Mar-2007', 'Apr-2007', 'May-2007', 'Jun-2007', 'Jul-2007', 'Aug-2007'],
+              textStyle: {
+                color: "#fff"
+              }
+            },
+          ],
+          toolbox: {
+            show: true,
+            orient: "vertical",
+            left: "right",
+            top: "center",
+            feature: {
+              mark: {
+                show: true
+              },
+              dataView: {
+                show: true,
+                readOnly: false
+              },
+              magicType: {
+                show: true,
+                type: ["line", "bar", "stack", "tiled"]
+              },
+              restore: {
+                show: true
+              },
+              saveAsImage: {
+                show: true
+              }
+            }
+          },
+          yAxis: [
+            {
+              type: "value"
+            },
+          ],
+          series: [
+                {
+                    "name": "gary.wilson@gmail.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 21,
+                            "commits": 21,
+                            "insertions": 422,
+                            "deletions": 132
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 53,
+                            "deletions": 21
+                        }
+                    ]
+                },
+                {
+                    "name": "adrian@holovaty.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 248,
+                            "commits": 248,
+                            "insertions": 28715,
+                            "deletions": 3382
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 179,
+                            "commits": 179,
+                            "insertions": 5046,
+                            "deletions": 2982
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 125,
+                            "commits": 125,
+                            "insertions": 2480,
+                            "deletions": 783
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 126,
+                            "commits": 126,
+                            "insertions": 3899,
+                            "deletions": 1757
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 257,
+                            "commits": 257,
+                            "insertions": 23957,
+                            "deletions": 9883
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 80,
+                            "commits": 80,
+                            "insertions": 1330,
+                            "deletions": 625
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 89,
+                            "commits": 89,
+                            "insertions": 1375,
+                            "deletions": 617
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 63,
+                            "commits": 63,
+                            "insertions": 1052,
+                            "deletions": 725
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 32,
+                            "commits": 32,
+                            "insertions": 613,
+                            "deletions": 158
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 25,
+                            "commits": 25,
+                            "insertions": 178,
+                            "deletions": 125
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 128,
+                            "commits": 128,
+                            "insertions": 24311,
+                            "deletions": 15835
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 105,
+                            "commits": 105,
+                            "insertions": 2204,
+                            "deletions": 830
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 102,
+                            "commits": 102,
+                            "insertions": 1141,
+                            "deletions": 557
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 86,
+                            "commits": 86,
+                            "insertions": 1347,
+                            "deletions": 248
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 41,
+                            "commits": 41,
+                            "insertions": 200,
+                            "deletions": 220
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 29,
+                            "commits": 29,
+                            "insertions": 1964,
+                            "deletions": 1184
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 64,
+                            "commits": 64,
+                            "insertions": 2585,
+                            "deletions": 589
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 90,
+                            "commits": 90,
+                            "insertions": 3751,
+                            "deletions": 1793
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 65,
+                            "commits": 65,
+                            "insertions": 2128,
+                            "deletions": 659
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 46,
+                            "commits": 46,
+                            "insertions": 1484,
+                            "deletions": 274
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 31,
+                            "commits": 31,
+                            "insertions": 1092,
+                            "deletions": 381
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 43,
+                            "commits": 43,
+                            "insertions": 1241,
+                            "deletions": 295
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 32,
+                            "commits": 32,
+                            "insertions": 896,
+                            "deletions": 395
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 29,
+                            "commits": 29,
+                            "insertions": 214,
+                            "deletions": 94
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 29,
+                            "commits": 29,
+                            "insertions": 570,
+                            "deletions": 234
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "simon@simonwillison.net",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 1,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 4,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 51,
+                            "deletions": 6
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "russell@keith-magee.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 5,
+                            "commits": 5,
+                            "insertions": 248,
+                            "deletions": 84
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 18,
+                            "commits": 18,
+                            "insertions": 391,
+                            "deletions": 143
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 8,
+                            "commits": 8,
+                            "insertions": 4296,
+                            "deletions": 3878
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 24,
+                            "commits": 24,
+                            "insertions": 749,
+                            "deletions": 208
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 17,
+                            "commits": 17,
+                            "insertions": 217,
+                            "deletions": 81
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 5,
+                            "commits": 5,
+                            "insertions": 15,
+                            "deletions": 32
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 9,
+                            "commits": 9,
+                            "insertions": 122,
+                            "deletions": 48
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 11,
+                            "commits": 11,
+                            "insertions": 724,
+                            "deletions": 55
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 9,
+                            "commits": 9,
+                            "insertions": 249,
+                            "deletions": 75
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 25,
+                            "commits": 25,
+                            "insertions": 1650,
+                            "deletions": 152
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 19,
+                            "commits": 19,
+                            "insertions": 689,
+                            "deletions": 104
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 24,
+                            "commits": 24,
+                            "insertions": 1482,
+                            "deletions": 512
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 3,
+                            "commits": 3,
+                            "insertions": 152,
+                            "deletions": 18
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 37,
+                            "commits": 37,
+                            "insertions": 600,
+                            "deletions": 200
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "malcolm.tredinnick@gmail.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 18,
+                            "commits": 18,
+                            "insertions": 401,
+                            "deletions": 139
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 40,
+                            "commits": 40,
+                            "insertions": 512,
+                            "deletions": 110
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 30,
+                            "commits": 30,
+                            "insertions": 222,
+                            "deletions": 136
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 10,
+                            "commits": 10,
+                            "insertions": 39,
+                            "deletions": 27
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 71,
+                            "commits": 71,
+                            "insertions": 600,
+                            "deletions": 204
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 6,
+                            "commits": 6,
+                            "insertions": 30,
+                            "deletions": 16
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 57,
+                            "commits": 57,
+                            "insertions": 18253,
+                            "deletions": 6752
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 75,
+                            "commits": 75,
+                            "insertions": 18368,
+                            "deletions": 10093
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 104,
+                            "commits": 104,
+                            "insertions": 19290,
+                            "deletions": 11270
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 85,
+                            "commits": 85,
+                            "insertions": 20316,
+                            "deletions": 8534
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 70,
+                            "commits": 70,
+                            "insertions": 13760,
+                            "deletions": 5075
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 60,
+                            "commits": 60,
+                            "insertions": 16028,
+                            "deletions": 11452
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "jacob@jacobian.org",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 55,
+                            "commits": 55,
+                            "insertions": 3620,
+                            "deletions": 1452
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 18,
+                            "commits": 18,
+                            "insertions": 683,
+                            "deletions": 1150
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 21,
+                            "commits": 21,
+                            "insertions": 607,
+                            "deletions": 72
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 10,
+                            "commits": 10,
+                            "insertions": 166,
+                            "deletions": 24
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 22,
+                            "commits": 22,
+                            "insertions": 13485,
+                            "deletions": 246
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 4,
+                            "commits": 4,
+                            "insertions": 16,
+                            "deletions": 5
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 3,
+                            "commits": 3,
+                            "insertions": 2,
+                            "deletions": 3
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 6,
+                            "commits": 6,
+                            "insertions": 42,
+                            "deletions": 16
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 9,
+                            "commits": 9,
+                            "insertions": 60,
+                            "deletions": 38
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 15,
+                            "commits": 15,
+                            "insertions": 2415,
+                            "deletions": 113
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 16,
+                            "commits": 16,
+                            "insertions": 1071,
+                            "deletions": 908
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 5,
+                            "commits": 5,
+                            "insertions": 218,
+                            "deletions": 15
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 3,
+                            "deletions": 17
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 3,
+                            "deletions": 2
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 23,
+                            "commits": 23,
+                            "insertions": 302,
+                            "deletions": 108
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 3,
+                            "commits": 3,
+                            "insertions": 33,
+                            "deletions": 12
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 11,
+                            "commits": 11,
+                            "insertions": 353,
+                            "deletions": 159
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 61,
+                            "commits": 61,
+                            "insertions": 1679,
+                            "deletions": 402
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 13,
+                            "commits": 13,
+                            "insertions": 372,
+                            "deletions": 37
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 1,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 42,
+                            "deletions": 5
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 9,
+                            "commits": 9,
+                            "insertions": 221,
+                            "deletions": 22
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 16,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "L.Plant.98@cantab.net",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 17,
+                            "commits": 17,
+                            "insertions": 307,
+                            "deletions": 61
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 108,
+                            "deletions": 48
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 7,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 3,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 23,
+                            "deletions": 23
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "ubernostrum@gmail.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 8,
+                            "commits": 8,
+                            "insertions": 232,
+                            "deletions": 260
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "gb@hugo.westfalen.de",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 64,
+                            "commits": 64,
+                            "insertions": 31907,
+                            "deletions": 18248
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 48,
+                            "commits": 48,
+                            "insertions": 25272,
+                            "deletions": 16260
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 16,
+                            "commits": 16,
+                            "insertions": 1846,
+                            "deletions": 1723
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 4,
+                            "commits": 4,
+                            "insertions": 5743,
+                            "deletions": 2735
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 4,
+                            "commits": 4,
+                            "insertions": 4242,
+                            "deletions": 642
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 4,
+                            "commits": 4,
+                            "insertions": 3779,
+                            "deletions": 124
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 21,
+                            "commits": 21,
+                            "insertions": 30718,
+                            "deletions": 22951
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 11,
+                            "commits": 11,
+                            "insertions": 2892,
+                            "deletions": 2513
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 7,
+                            "commits": 7,
+                            "insertions": 4567,
+                            "deletions": 479
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 153,
+                            "deletions": 261
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 12,
+                            "commits": 12,
+                            "insertions": 6114,
+                            "deletions": 1522
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 5,
+                            "commits": 5,
+                            "insertions": 2888,
+                            "deletions": 2048
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 4,
+                            "commits": 4,
+                            "insertions": 634,
+                            "deletions": 446
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "wminer@gmail.com",
+                    "type": "bar",
+                    "barGap": 0,
+                    "emphasis": {
+                        "focus": "series"
+                    },
+                    "data": [
+                        {
+                            "name": "Commits",
+                            "value": 15,
+                            "commits": 15,
+                            "insertions": 274,
+                            "deletions": 182
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 6,
+                            "deletions": 9
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 38,
+                            "deletions": 116
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 2,
+                            "commits": 2,
+                            "insertions": 4,
+                            "deletions": 4
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 3,
+                            "commits": 3,
+                            "insertions": 37,
+                            "deletions": 46
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 4,
+                            "deletions": 4
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 1,
+                            "deletions": 1
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 6,
+                            "commits": 6,
+                            "insertions": 14,
+                            "deletions": 12
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 1,
+                            "commits": 1,
+                            "insertions": 5,
+                            "deletions": 5
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        },
+                        {
+                            "name": "Commits",
+                            "value": 0,
+                            "commits": 0,
+                            "insertions": 0,
+                            "deletions": 0
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+      </script>
+    </body>
+  </head>
+</html>

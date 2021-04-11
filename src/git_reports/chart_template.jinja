@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #eee;
+      }
+
+      div#chart-container{
+        width: 100%;
+        height: 100vh;
+      }
+
+      .chart-tooltip .insertions {
+        color: green;
+      }
+
+      .chart-tooltip .deletions {
+        color: red;
+      }
+
+    </style>
+    <meta charset="utf-8" />
+    <body>
+      <!-- chart container  -->
+      <div id="chart-container"></div>
+    
+      <!-- echarts cdn -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+
+      <!-- prepare chart -->
+      <script type="text/javascript">
+        /*  Chart terminologies
+            title: title of chart
+            legend: color and bar name indicator
+            xAxis: horizontal line
+            yAxis: veritcal line
+            toolbox: right box
+            series: list of values, objects
+        */
+
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById("chart-container"));
+
+        // specify chart configuration item and data
+        var option = {
+          color: [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#91c7ae",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+          ],
+          title: {
+            show: false,
+            text: {{ chart_data.title }},
+            textStyle: {
+              color: "black"
+            }
+          },
+          tooltip: {
+            trigger: "item",
+            axisPointer: {
+              type: "shadow"
+            },
+            formatter(params){
+              return `
+              <div class='chart-tooltip'>
+                <span class='series-name'>${params.seriesName}</span><br/>
+                <span class='data-value'>${params.data.value}</span>
+                <span class='data-name'>${params.data.name}</span>
+                &nbsp;
+                <span class='insertions'>${params.data.insertions}++</span>
+                <span class='deletions'>${params.data.deletions}--</span>
+              </div>
+              `
+            }
+          },
+          legend: {
+            data: {{ chart_data.legend_data }},
+            textStyle: {
+              color: "black"
+            }
+          },
+          xAxis: [
+            {
+              data: {{ chart_data.xaxis_data }},
+              textStyle: {
+                color: "#fff"
+              }
+            },
+          ],
+          toolbox: {
+            show: true,
+            orient: "vertical",
+            left: "right",
+            top: "center",
+            feature: {
+              mark: {
+                show: true
+              },
+              dataView: {
+                show: true,
+                readOnly: false
+              },
+              magicType: {
+                show: true,
+                type: ["line", "bar", "stack", "tiled"]
+              },
+              restore: {
+                show: true
+              },
+              saveAsImage: {
+                show: true
+              }
+            }
+          },
+          yAxis: [
+            {
+              type: "value"
+            }
+          ],
+          series: {{chart_data.series_data}}
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+      </script>
+    </body>
+  </head>
+</html>

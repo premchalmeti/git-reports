@@ -1,0 +1,10 @@
+[build-system]
+
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "GitPython==3.1.14",
+    "Jinja2==2.11.3"
+]
+
+build-backend = "setuptools.build_meta"
